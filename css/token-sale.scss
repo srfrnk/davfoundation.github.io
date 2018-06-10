@@ -146,6 +146,7 @@ input {
                 width: 100%;
                 top: calc(40% + 64px);
             }
+            
         }
 
         .token-sale {
@@ -192,7 +193,7 @@ input {
         padding: 52px 40px 40px 40px;
 
         @include mobile {
-            padding: 32px 12px;
+            padding: 16px 12px;
         }
 
         @include desktop {
@@ -202,6 +203,7 @@ input {
         @include not-desktop {
             width: 100%;
         }
+        
 
         .welcome-section {
             width: 75%;
@@ -219,7 +221,8 @@ input {
             }
 
             p {
-                font-size: $fontSize3;
+                font-size: $fontSize4;
+                text-align: center;
             }
 
             form {
@@ -233,6 +236,20 @@ input {
                 .button {
                     width: 33%;
                     margin: 0 0 0 4px;
+                }
+
+                @include mobile {
+                    display: block;
+
+                    input {
+                        width: calc(100% - 12px);
+                    }
+
+                    .button {
+                        width: 128px;
+                        margin: auto;
+                        margin-top: 24px;
+                    }
                 }
             }
         }
@@ -249,8 +266,8 @@ input {
                 display: block;
                 margin: auto;
                 position: relative;
-                width: 40%;                
-                height: 40%;
+                width: 112px;                
+                height: 80px;
             }
         }
 
@@ -285,7 +302,8 @@ input {
         .home-address {
 
             .title {
-                font-size: $fontSize2;
+                font-size: $fontSize3;
+                text-align: center;
             }
 
             button {
@@ -302,8 +320,15 @@ input {
                 margin: 20px 0 0px 0;
             }
 
+            .paragraf {
+                margin: 20px 0;
+                p {
+                    margin: 4px 0;
+                }
+            }
+
             input {
-                font-size: $fontSize4;
+                font-size: 14px;
             }
 
             .secondary-title {
@@ -451,7 +476,11 @@ input {
 
         .right-section {
             order: 1;
-            width: 100%;
+            width: calc(100% - 80px);
+            @include mobile {
+                width: calc(100% - 24px);
+            }
+
         }
     }
 }

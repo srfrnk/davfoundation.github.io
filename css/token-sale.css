@@ -133,7 +133,7 @@ input {
     padding: 52px 40px 40px 40px; }
     @media (max-width: 600px) {
       #container .right-section {
-        padding: 32px 12px; } }
+        padding: 16px 12px; } }
     @media (min-width: 1024px) {
       #container .right-section {
         min-height: calc(100vh - 92px); } }
@@ -154,7 +154,8 @@ input {
           transform: translate(0, 0);
           margin-top: 16px; } }
       #container .right-section .welcome-section p {
-        font-size: 20px; }
+        font-size: 16px;
+        text-align: center; }
       #container .right-section .welcome-section form {
         display: flex;
         position: relative; }
@@ -164,6 +165,15 @@ input {
         #container .right-section .welcome-section form .button {
           width: 33%;
           margin: 0 0 0 4px; }
+        @media (max-width: 600px) {
+          #container .right-section .welcome-section form {
+            display: block; }
+            #container .right-section .welcome-section form input {
+              width: calc(100% - 12px); }
+            #container .right-section .welcome-section form .button {
+              width: 128px;
+              margin: auto;
+              margin-top: 24px; } }
     #container .right-section .dav-logo {
       display: none;
       width: 64px;
@@ -176,8 +186,8 @@ input {
           display: block;
           margin: auto;
           position: relative;
-          width: 40%;
-          height: 40%; } }
+          width: 112px;
+          height: 80px; } }
     #container .right-section .error {
       padding: 32px;
       transform: translateY(-50%);
@@ -198,7 +208,8 @@ input {
         #container .right-section .error .button.hide {
           display: none; }
     #container .right-section .home-address .title {
-      font-size: 24px; }
+      font-size: 20px;
+      text-align: center; }
     #container .right-section .home-address button {
       display: block;
       margin: 24px auto 0;
@@ -207,8 +218,12 @@ input {
       text-transform: uppercase; }
     #container .right-section .home-address p {
       margin: 20px 0 0px 0; }
+    #container .right-section .home-address .paragraf {
+      margin: 20px 0; }
+      #container .right-section .home-address .paragraf p {
+        margin: 4px 0; }
     #container .right-section .home-address input {
-      font-size: 16px; }
+      font-size: 14px; }
     #container .right-section .home-address .secondary-title {
       margin: 24px 0 4px 0; }
     #container .right-section .home-address .input-field {
@@ -318,7 +333,10 @@ input {
       width: 100%; }
     #container.sale-page .right-section {
       order: 1;
-      width: 100%; } }
+      width: calc(100% - 80px); } }
+    @media (max-width: 1023px) and (max-width: 600px) {
+      #container.sale-page .right-section {
+        width: calc(100% - 24px); } }
 
 #contracts-address {
   font-size: 12px;

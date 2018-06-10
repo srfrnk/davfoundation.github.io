@@ -30,9 +30,16 @@ $(document).ready(function(){
     ounerDetailsForm.submit(function () {
         event.preventDefault();
         if (validateOunerDetailsForm(ounerDetailsForm, moreBeneficial)) {
-            var addressInfo = ounerDetailsForm.serialize();
             $('#container').addClass('go-out');
-            setTimeout(startTokenSale, 1000);
+            var addressInfo = ounerDetailsForm.serializeArray();
+            $.ajax({
+                type: 'POST',
+                url: 'https://nessie.dav.network/tokensalevalidation?',
+                dataType: 'json',
+                body: objectifyForm(addressInfo),
+                success: startTokenSale
+            });
+            
         }
     })
 
@@ -62,6 +69,15 @@ $(document).ready(function(){
         forgotWalletAddress(mailInput.val());
     })
 });
+
+function objectifyForm(formArray) {
+
+    var returnArray = {};
+    for (var i = 0; i < formArray.length; i++){
+      returnArray[formArray[i]['name']] = formArray[i]['value'];
+    }
+    return returnArray;
+}
 
 function checkEmail(email) {
     if (validateEmail(email)) {
@@ -154,7 +170,8 @@ function showErrorPage(title) {
     $('#container').removeClass('go-out')
 }
 
-function startTokenSale() {
+function startTokenSale(data) {
+    debugger
     $('.token-sale').show();
     $('.welcome-section, .error, .home-address').addClass('hide');
     $('#container').removeClass('go-out').addClass('sale-page');
@@ -172,11 +189,18 @@ function showErrorMsg(el, msg) {
     el.text(msg);
 }
 
-function forgotWalletAddress() {
-    $('.prompt.success').removeClass('hide');
-    setTimeout(function () {
-        $('.prompt.success').addClass('hide');  
-    }, 5000)
+function forgotWalletAddress(email) {
+    $.ajax({
+        type: 'GET',
+        url: "https://nessie.dav.network/restorewalletaddress?email="+email,
+        dataType: 'json',
+        success: function (data) {
+            $('.prompt.success').removeClass('hide');
+            setTimeout(function () {
+                $('.prompt.success').addClass('hide');  
+            }, 5000)
+                }
+      });
 }
 
 $.fn.extend({
