@@ -174,7 +174,7 @@
           <div class="details">
             <div>
               <a id="forgot-wallet-address">Forgot wallet address?</a>
-              <a href="https://nessie.dav.network/join">Use a different wallet address</a>
+              <a id="another-wallet">Use a different wallet address</a>
             </div>
           </div>
           <div class="details">
@@ -189,12 +189,17 @@
         </div>
     </div>
 
-    <div class="prompt success hide">
-      Please check your email. We've sent you the wallet address you have whitelisted with DAV.
+    <div id="curtain" class="hide">
     </div>
-    <div class="prompt error hide">
-      Oops... something went wrong, please try again.
-    </div>
+    <div id="modal" class="modal hide">
+        <div id="close-button">&#10005</div>
+        <p id="modal-text"></p>
+    </div>   
+    <div id="another-wallet-modal" class="modal hide">
+        <div id="close-button">&#10005</div>
+        <p>If you would like to use a different Ethereum wallet address, you will need to go through the KYC process again using the same email address.</p>
+        <a href="https://nessie.dav.network/join" class="button">Restart KYC Process</a>
+    </div>     
 
   <script src="js/token-sale.js?v=1.3"></script>
 </body>

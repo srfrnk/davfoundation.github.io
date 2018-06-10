@@ -68,6 +68,16 @@ $(document).ready(function(){
     $('#forgot-wallet-address').click(function() {
         forgotWalletAddress(mailInput.val());
     })
+    
+    $('#another-wallet').click(function() {
+        $('#curtain').removeClass('hide');
+        $('#another-wallet-modal').removeClass('hide');
+    })
+
+    $('#close-button').click(function() {
+        $('#curtain').addClass('hide');
+        $('#modal').addClass('hide')
+    })
 });
 
 function objectifyForm(formArray) {
@@ -171,6 +181,8 @@ function showErrorPage(title) {
 }
 
 function startTokenSale(data) {
+    if (!data.contractAddress) return $('#container').removeClass('go-out');
+
     $('#contracts-address').val(data.contractAddress);
     $('.token-sale').show();
     $('.welcome-section, .error, .home-address').addClass('hide');
@@ -195,11 +207,10 @@ function forgotWalletAddress(email) {
         url: "https://nessie.dav.network/restorewalletaddress?email="+email,
         dataType: 'json',
         success: function (data) {
-            $('.prompt.success').removeClass('hide');
-            setTimeout(function () {
-                $('.prompt.success').addClass('hide');  
-            }, 5000)
-                }
+            $('#curtain').removeClass('hide');
+            $('#modal').removeClass('hide');
+            $('#modal-text').text('Please check your email. We\'ve sent you the wallet address you have whitelisted with DAV.');
+        }
       });
 }
 
