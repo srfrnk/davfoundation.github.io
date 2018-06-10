@@ -1,17 +1,15 @@
 var GOOGLE_GEOLOCATION_API_KEY = 'AIzaSyDOtBrAgfz68KEzcoArjq5MK9mNh6Uq1V8'
 
-var KYC_MEMBERS_URL = 'https://a6e4u0sw16.execute-api.us-east-1.amazonaws.com/staging/members';
+//var KYC_MEMBERS_URL = 'https://a6e4u0sw16.execute-api.us-east-1.amazonaws.com/staging/members';
+var KYC_MEMBERS_URL = 'https://nessie.dav.network/members';
 
 //var ETH_NODE_URL = 'https://ropsten.infura.io/wUiZtmeZ1KwjFrcC8zRO';
-const ETH_NODE_URL = 'https://mainnet.infura.io/wUiZtmeZ1KwjFrcC8zRO';
+var ETH_NODE_URL = 'https://mainnet.infura.io/wUiZtmeZ1KwjFrcC8zRO';
 
 var web3Provider = new Web3
     .providers
     .HttpProvider(ETH_NODE_URL);
 var web3 = new Web3(web3Provider);
-window.contractInstance = new web3.eth.Contract(window.contractArtifact.abi, window.contractArtifact.address);
-var weiRaised = null;
-var KYC_MEMBERS_URL = 'https://nessie.dav.network/members';
 
 function numberWithCommas(number) {
   var parts = number.toString().split(".");
@@ -20,9 +18,11 @@ function numberWithCommas(number) {
 }
 
 function updateEthRaised() {
-  window.contractInstance.methods.weiRaised().call(function(error, results) {
-    if(!error) {
-      weiRaised = results;
+  $.ajax({
+    url: KYC_MEMBERS_URL,
+    type: 'GET',
+    success: function(result) {
+      weiRaised = result.weiRaised;
       var ethRaisedValue = Number(web3.utils.fromWei(weiRaised, 'ether'));
       increaseWithAnimation($("#eth-raised"), ethRaisedValue);
     }
@@ -34,7 +34,7 @@ function updateEthWhitelisted() {
     url: KYC_MEMBERS_URL,
     type: 'GET',
     success: function(result) {
-      let ethWhitelisted = result;
+      let ethWhitelisted = result.whitelisted;
       increaseWithAnimation($("#eth-whitelisted"), ethWhitelisted);
     }
   });
