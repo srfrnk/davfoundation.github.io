@@ -547,5 +547,5 @@ window.contractArtifact = {
     "type": "function",
     "signature": "0x23586685"
   }],
-  address: "0x2A1E0edc88352Da82978d895Bd9F873160864D14"
+  address: "0x469F8cBab89bE09b5222cfE6C7CBE544Dc0Bd696"
 };

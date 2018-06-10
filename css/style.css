@@ -203,6 +203,9 @@ input {
 .telegram-bottom.extra-space {
   bottom: 60px; }
 
+#hero-register-button {
+  text-decoration: none; }
+
 .hero {
   background: #000 url("../img/hero.jpg") no-repeat center;
   background-size: cover;
@@ -381,7 +384,7 @@ input {
     background: #000 url("../img/intersection.jpg") no-repeat center;
     background-size: cover; }
   .hero.hero-ico {
-    background: #000 url("../img/hero-new.jpg") no-repeat center;
+    background: #000 url("../img/hero-new.jpg") no-repeat center center;
     background-size: cover;
     overflow: hidden; }
     .hero.hero-ico .hero-inner {
@@ -401,8 +404,11 @@ input {
         font-weight: 700; }
     .hero.hero-ico .hero-inner .hero-valign h6 {
       font-weight: 400;
-      font-size: 14px;
+      font-size: 15px;
       margin-bottom: 20px; }
+      .hero.hero-ico .hero-inner .hero-valign h6 a {
+        color: #FFF;
+        text-decoration: underline; }
     .hero.hero-ico .hero-inner .hero-valign p.restriction {
       font-size: 14px;
       color: #c0b5b5;
@@ -1196,6 +1202,15 @@ input {
     font-size: 15px;
     font-weight: 500;
     color: #ff6a46; }
+  .team .team-large h6 {
+    font-size: 11px;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    color: #979797;
+    min-height: 60px;
+    line-height: 14px;
+    padding: 0 30px; }
   .team .team-large h3 {
     font-size: 17px;
     font-size: 13px;
@@ -3032,8 +3047,6 @@ footer {
     margin: 0 0 60px; }
   footer .about-legal .social a {
     min-width: 49%; }
-  .hero.hero-ico {
-    background-position: left 15% top; }
   .hero.hero-ico .hero-inner .hero-valign .ico-start-box {
     margin-bottom: 30px;
     padding: 20px 0; }
@@ -3214,6 +3227,8 @@ footer {
     .prototypes-section h2 {
       margin-top: 10vw;
       margin-bottom: 60vw; }
+  .team .team-large h6 {
+    padding: 0; }
   .team .team-large a .row img,
   .team .team-medium a .row img,
   .team .team-small a .row img {
@@ -3379,8 +3394,6 @@ footer {
     margin-bottom: 50px; }
   .telegram-bottom.extra-space {
     bottom: 140px; }
-  .hero.hero-ico {
-    background-position: left 24% top; }
   .hero.hero-ico .hero-inner .hero-valign h1 {
     font-size: 28px;
     padding-top: 25px;

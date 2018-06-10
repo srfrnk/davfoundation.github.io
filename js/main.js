@@ -2,8 +2,8 @@ var GOOGLE_GEOLOCATION_API_KEY = 'AIzaSyDOtBrAgfz68KEzcoArjq5MK9mNh6Uq1V8'
 
 var KYC_MEMBERS_URL = 'https://a6e4u0sw16.execute-api.us-east-1.amazonaws.com/staging/members';
 
-var ETH_NODE_URL = 'https://ropsten.infura.io/wUiZtmeZ1KwjFrcC8zRO';
-//const ETH_NODE_URL = 'https://mainnet.infura.io/wUiZtmeZ1KwjFrcC8zRO';
+//var ETH_NODE_URL = 'https://ropsten.infura.io/wUiZtmeZ1KwjFrcC8zRO';
+const ETH_NODE_URL = 'https://mainnet.infura.io/wUiZtmeZ1KwjFrcC8zRO';
 
 var web3Provider = new Web3
     .providers
@@ -11,6 +11,7 @@ var web3Provider = new Web3
 var web3 = new Web3(web3Provider);
 window.contractInstance = new web3.eth.Contract(window.contractArtifact.abi, window.contractArtifact.address);
 var weiRaised = null;
+var KYC_MEMBERS_URL = 'https://nessie.dav.network/members';
 
 function numberWithCommas(number) {
   var parts = number.toString().split(".");
@@ -220,6 +221,16 @@ $(document).ready(function(){
       }, 700);
     });
 
+    $("a[href=#team]").click(function(e) {
+      e.preventDefault();
+      var offset = $('.navbar').height();
+      // offset = offset + offset*0.15;
+      var section = "#team";
+      $("html, body").animate({
+        scrollTop: $(section).offset().top - offset
+      }, 700);
+    });
+
     //daily video
     var channelID = 'UCPuAOygDwCiLOdLosiQJJ1w';
     $.get(
@@ -338,7 +349,7 @@ $(document).ready(function(){
   // alert announcement
 
     $('#alert-announcement').on('closed.bs.alert', function () {
-        setCookie('alert-dav-missioncontrol', true, 365);
+        setCookie('dav-utility-token', true, 365);
        $('.telegram-bottom').removeClass("extra-space");
         return false;
     })
@@ -369,7 +380,7 @@ $(document).ready(function(){
         document.cookie = c_name + "=" + c_value;
     }
 
-    if (getCookie('alert-dav-missioncontrol') === "true") {
+    if (getCookie('dav-utility-token') === "true") {
        $('#alert-announcement').hide();
        $('.telegram-bottom').removeClass("extra-space");
     }
@@ -397,48 +408,53 @@ $(document).ready(function(){
                 $(".kyc-loader").addClass('hide');
                 $("#kyc-form").hide();
                 // $(".kyc-response").text(data.suggestionText);
-                var title = '';
+                var gaTitle, title = '';
                 switch(data.statusText) {
                     case "AutoFinish":
                     case "ManualFinish":
                         title = "Congratulations!";
+                        gaTitle = 'Congratulations';
                         $(".kyc-response").text("You’re now officially in whitelist A! We’ll share specific instructions on how to participate as we get closer to our token sale.");
                         $(".kyc-close,.kyc-telegram").removeClass('hide');
                         break;
                     case "Failed":
                     case "CheckRequired":
                         title = "Your KYC application is currently being processed.";
+                        gaTitle = 'Your KYC application is currently being processed.';
                         $(".kyc-response").text("You’ll receive an email once your application has been processed with next steps.");
                         $(".kyc-close,.kyc-telegram3").removeClass('hide');
                         break;
                     case "Rejected":
                         title = "Your KYC application has not been accepted.";
+                        gaTitle = 'Your KYC application has not been accepted.';
                         $(".kyc-response").html("If you believe your KYC has been rejected by mistake we ask that you please resubmit your KYC by clicking the button below. Our systems tell us you should be able to successfully complete your KYC by doing the following:<br><br><b>" + data.suggestionText + "</b>");
                         $(".kyc-button,.kyc-medium,.kyc-telegram2").removeClass('hide');
                         $(".kyc-button").attr("href","https://nessie.dav.network/join?email="+email);
                         break;
                     case "Expired":
                         title = "Your KYC application has expired.";
+                        gaTitle = 'Your KYC application has expired.';
                         $(".kyc-response").text("We ask you to please resubmit your KYC by clicking the button below.");
                         $(".kyc-close,.kyc-medium,.kyc-telegram2").removeClass('hide');
                         break;
                     case "Started":
-                        title = "Your KYC application failed to process."
-                        $(".kyc-response").text("Our systems tell us the email address you used is not valid. We ask that you please resubmit your KYC by clicking the button below and providing a valid email address.");
-                        $(".kyc-button,.kyc-medium,.kyc-telegram2").removeClass('hide');
-                        $(".kyc-button").attr("href","https://nessie.dav.network/join?email="+email);
+                        gaTitle = 'email not exist';
+                        $("#kyc-form").show();
+                        $(".kyc-error").show();
+                        $(".kyc-error").animateCss("shake");
+                        $(".kyc-error").text("This email does not exist");
                         break;
                     default:
                       break;
                 }
-                $(".kyc-title").text(title);
-                ga('send', 'event', 'KYC', 'status results', data.statusText, title);
+                if (title) $(".kyc-title").text(title);
+                ga('send', 'event', 'KYC', 'status results', data.statusText, gaTitle);
               }
           });
         }else{
           $(".kyc-error").show();
           $(".kyc-error").animateCss("shake");
-          $(".kyc-error").text("Please enter your email address.");
+          $(".kyc-error").text("Please enter a valid email address");
         }
 
     });
@@ -496,7 +512,7 @@ function handleJoinTelegram() {
     var announcementTrigger = document.querySelector('.video-home');
     var scrollAnouncement = function() {
       window.removeEventListener('scroll', scrollAnouncement);
-      //uncomment this to enable $("#alert-announcement").removeClass('hide');
+      $("#alert-announcement").removeClass('hide');
       if($('#alert-announcement').is(':visible'))
       {
         $(".telegram-bottom").addClass('extra-space');
