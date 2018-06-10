@@ -400,7 +400,24 @@ $(document).ready(function(){
                         title = "Congratulations!";
                         gaTitle = 'Congratulations';
                         $(".kyc-response").text("You’re now officially in whitelist A! We’ll share specific instructions on how to participate as we get closer to our token sale.");
-                        $(".kyc-close,.kyc-telegram").removeClass('hide');
+                        $("#whitelisted-join-token-sale-button,.kyc-telegram").removeClass('hide');
+                        $("#forgot-wallet-address").removeClass('hide');
+                        $("#forgot-wallet-address").on('click',function (e) {
+                          e.preventDefault();
+                          $.ajax({
+                            type: 'GET',
+                            url: "https://nessie.dav.network/restorewalletaddress?email="+email,
+                            dataType: 'json',
+                            success: function (data) {
+                              $("#whitelisted-join-token-sale-button,.kyc-telegram").addClass('hide');
+                              $("#forgot-wallet-address").addClass('hide');
+                              $(".kyc-title").text('');
+                              $(".kyc-response").text("");
+                              $(".kyc-response").html("Your wallet address has been sent to <b>" + decodeURIComponent(email) + "</b>");
+                              $(".kyc-close").removeClass('hide');
+                            }
+                          });
+                        });
                         break;
                     case "Failed":
                     case "CheckRequired":
