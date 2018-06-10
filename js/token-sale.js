@@ -30,9 +30,16 @@ $(document).ready(function(){
     ounerDetailsForm.submit(function () {
         event.preventDefault();
         if (validateOunerDetailsForm(ounerDetailsForm, moreBeneficial)) {
-            var addressInfo = ounerDetailsForm.serialize();
             $('#container').addClass('go-out');
-            setTimeout(startTokenSale, 1000);
+            var addressInfo = ounerDetailsForm.serialize();
+            $.ajax({
+                type: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                url: 'https://nessie.dav.network/tokensalevalidation?',
+                data: addressInfo,
+                success: startTokenSale
+            });
+            
         }
     })
 
@@ -61,7 +68,26 @@ $(document).ready(function(){
     $('#forgot-wallet-address').click(function() {
         forgotWalletAddress(mailInput.val());
     })
+    
+    $('#another-wallet').click(function() {
+        $('#curtain').removeClass('hide');
+        $('#another-wallet-modal').removeClass('hide');
+    })
+
+    $('#close-button').click(function() {
+        $('#curtain').addClass('hide');
+        $('#modal').addClass('hide')
+    })
 });
+
+function objectifyForm(formArray) {
+
+    var returnArray = {};
+    for (var i = 0; i < formArray.length; i++){
+      returnArray[formArray[i]['name']] = formArray[i]['value'];
+    }
+    return returnArray;
+}
 
 function checkEmail(email) {
     if (validateEmail(email)) {
@@ -154,7 +180,10 @@ function showErrorPage(title) {
     $('#container').removeClass('go-out')
 }
 
-function startTokenSale() {
+function startTokenSale(data) {
+    if (!data.contractAddress) return $('#container').removeClass('go-out');
+
+    $('#contracts-address').val(data.contractAddress);
     $('.token-sale').show();
     $('.welcome-section, .error, .home-address').addClass('hide');
     $('#container').removeClass('go-out').addClass('sale-page');
@@ -163,7 +192,7 @@ function startTokenSale() {
 function showHomeAddressForm() {
     $('.home-address').removeClass('hide');
     $('.welcome-section, .error').addClass('hide');
-    $('#container').removeClass('go-out').addClass('home-address');
+    $('#container').removeClass('go-out').addClass('ouner-details');
 }
 
 function showErrorMsg(el, msg) {
@@ -172,11 +201,17 @@ function showErrorMsg(el, msg) {
     el.text(msg);
 }
 
-function forgotWalletAddress() {
-    $('.prompt.success').removeClass('hide');
-    setTimeout(function () {
-        $('.prompt.success').addClass('hide');  
-    }, 5000)
+function forgotWalletAddress(email) {
+    $.ajax({
+        type: 'GET',
+        url: "https://nessie.dav.network/restorewalletaddress?email="+email,
+        dataType: 'json',
+        success: function (data) {
+            $('#curtain').removeClass('hide');
+            $('#modal').removeClass('hide');
+            $('#modal-text').text('Please check your email. We\'ve sent you the wallet address you have whitelisted with DAV.');
+        }
+      });
 }
 
 $.fn.extend({

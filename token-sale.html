@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://dav.network/img/og_image.jpg" />
   <meta property="og:url" content="https://dav.network/token-sale.html" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
-  <link rel="stylesheet" href="css/token-sale.css?v=1.2">
+  <link rel="stylesheet" href="css/token-sale.css?v=1.3">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="icon" type="image/png" sizes="192x192"  href="img/fav/android-icon-192x192.png?v=2">
   <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon.png?v=2">
@@ -41,6 +41,12 @@
         <div class="home-address hide">
             <div class="dav-logo">
             </div>
+            <div class="video-head">
+              Watch the token sale contribution tutorial
+          </div>
+          <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/MJrYxRo0UG8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>  
         </div>
         <div class="token-sale">
           <div class="video-head">
@@ -112,24 +118,26 @@
 
         <div class="home-address hide">
           <div class="title">DAV Token Owner Details</div>
-          <p>Thanks for taking part in the DAV Token Sale!</p>
-          <p>Please fill in the below required information to purchase DAV tokens:</p>
+          <div class="paragraf">
+              <p>Thanks for taking part in the DAV Token Sale!</p>
+              <p>Please fill in the below required information to purchase DAV tokens:</p>    
+          </div>
           <form id="ouner-details-form">
-              <p class="secondary-title"><b>Full home address</b></p>
+              <p class="secondary-title"><b>Full home address:</b></p>
               <input class="input-field" name="ownerAddress" placeholder="Home address (actual address of domicile)">
-              <p class="secondary-title"><b>The Purchaser of DAV Tokens hereby declares that</b></p>
+              <p class="secondary-title"><b>The Purchaser of DAV Tokens hereby declares that:</b></p>
               <div class="radio-button">
                   <input type="radio" name="soleBeneficial" value="true" checked="checked">
-                  <p>he/she is the sole beneficial owner of the purchased DAV Tokens.</p>    
+                  <p>He/she is the sole beneficial owner of the purchased DAV Tokens.</p>    
               </div>
               <div class="radio-button">
                   <input type="radio" name="soleBeneficial" value="">
-                  <p>the person(s) listed below is/are the beneficial owner(s) of the purchased DAV Tokens:</p>    
+                  <p>The person(s) listed below is/are the beneficial owner(s) of the purchased DAV Tokens:</p>    
               </div>
               <div id="another-person" class="hide">
-                  <input class="input-field" name="otherSurnames" placeholder="Suename(s)">
+                  <input class="input-field" name="otherSurnames" placeholder="Surname(s)">
                   <input class="input-field" name="otherFirstnames" placeholder="First name(s)">
-                  <input class="input-field" name="otherBirthdates" placeholder="Date(S) of birth">
+                  <input class="input-field" name="otherBirthdates" placeholder="Date(s) of birth">
                   <input class="input-field" name="otherNationalities" placeholder="Nationality">
                   <input class="input-field" name="otherAddresses" placeholder="Home address (actual address of domicile)">
               </div>
@@ -156,17 +164,17 @@
                   <div class="eth-icon"></div>
                   <div>
                       <div>ADDRESS</div>
-                      <div><input id="contracts-address" value="0xg41i6v4e72m7e54y316o7u18r43e12m51o6n2y18"></div>    
+                      <div><input id="contracts-address" value="0x48ED3568859cBe3eCEaA5D5ebF11BDD3236a1587"></div>    
                   </div>
                 </div>
                 <div class="button" readonly id="copy-to-clipboard">COPY TO CLIPBOARD</div>    
             </div>
           </div>
-          <p><b>Note: </b>Only send funds from the wallet you have whitelisted for the DAV token sale. We encourage you to set the gas limit and gas price suggested by your wallet. To prevent gas wars if you exceed the maximum amount outlined below, your transaction will be rejected.</p>
+          <p><b>Note: </b>Only send funds from the wallet you have whitelisted for the DAV token sale. We encourage you to set a gas limit of 300,000 and gas price suggested by your wallet. To prevent gas wars if you exceed the maximum amount outlined below, your transaction will be rejected.</p>
           <div class="details">
             <div>
               <a id="forgot-wallet-address">Forgot wallet address?</a>
-              <a href="https://nessie.dav.network/join">Use a different wallet address</a>
+              <a id="another-wallet">Use a different wallet address</a>
             </div>
           </div>
           <div class="details">
@@ -181,13 +189,18 @@
         </div>
     </div>
 
-    <div class="prompt success hide">
-      Please check your email. We've sent you the wallet address you have whitelisted with DAV.
+    <div id="curtain" class="hide">
     </div>
-    <div class="prompt error hide">
-      Oops... something went wrong, please try again.
-    </div>
+    <div id="modal" class="modal hide">
+        <div id="close-button">&#10005</div>
+        <p id="modal-text"></p>
+    </div>   
+    <div id="another-wallet-modal" class="modal hide">
+        <div id="close-button">&#10005</div>
+        <p>If you would like to use a different Ethereum wallet address, you will need to go through the KYC process again using the same email address.</p>
+        <a href="https://nessie.dav.network/join" class="button">Restart KYC Process</a>
+    </div>     
 
-  <script src="js/token-sale.js?v=1.2"></script>
+  <script src="js/token-sale.js?v=1.3"></script>
 </body>
 </html>
