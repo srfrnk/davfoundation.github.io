@@ -1,15 +1,15 @@
 var GOOGLE_GEOLOCATION_API_KEY = 'AIzaSyDOtBrAgfz68KEzcoArjq5MK9mNh6Uq1V8'
 
-// var ETH_NODE_URL = 'https://ropsten.infura.io/wUiZtmeZ1KwjFrcC8zRO';
-const ETH_NODE_URL = 'https://mainnet.infura.io/wUiZtmeZ1KwjFrcC8zRO';
+//var KYC_MEMBERS_URL = 'https://a6e4u0sw16.execute-api.us-east-1.amazonaws.com/staging/members';
+var KYC_MEMBERS_URL = 'https://nessie.dav.network/members';
+
+//var ETH_NODE_URL = 'https://ropsten.infura.io/wUiZtmeZ1KwjFrcC8zRO';
+var ETH_NODE_URL = 'https://mainnet.infura.io/wUiZtmeZ1KwjFrcC8zRO';
 
 var web3Provider = new Web3
     .providers
     .HttpProvider(ETH_NODE_URL);
 var web3 = new Web3(web3Provider);
-window.contractInstance = new web3.eth.Contract(window.contractArtifact.abi, window.contractArtifact.address);
-var weiRaised = null;
-var KYC_MEMBERS_URL = 'https://nessie.dav.network/members';
 
 function numberWithCommas(number) {
   var parts = number.toString().split(".");
@@ -17,12 +17,24 @@ function numberWithCommas(number) {
   return parts.join(".");
 }
 
+function updateEthRaised() {
+  $.ajax({
+    url: KYC_MEMBERS_URL,
+    type: 'GET',
+    success: function(result) {
+      weiRaised = result.weiRaised;
+      var ethRaisedValue = Number(web3.utils.fromWei(weiRaised, 'ether'));
+      increaseWithAnimation($("#eth-raised"), ethRaisedValue);
+    }
+  });
+}
+
 function updateEthWhitelisted() {
   $.ajax({
     url: KYC_MEMBERS_URL,
     type: 'GET',
     success: function(result) {
-      let ethWhitelisted = result;
+      let ethWhitelisted = result.whitelisted;
       increaseWithAnimation($("#eth-whitelisted"), ethWhitelisted);
     }
   });
@@ -47,6 +59,9 @@ function increaseWithAnimation(ethCountElement,newValue) {
 }
 
 $(document).ready(function(){
+  updateEthRaised();
+  setInterval(() => updateEthRaised(), 10000);
+
   updateEthWhitelisted();
   setInterval(() => updateEthWhitelisted(), 10000);
   
@@ -399,7 +414,7 @@ $(document).ready(function(){
                     case "ManualFinish":
                         title = "Congratulations!";
                         gaTitle = 'Congratulations';
-                        $(".kyc-response").text("You’re now officially in whitelist A! We’ll share specific instructions on how to participate as we get closer to our token sale.");
+                        $(".kyc-response").html("You’re now officially whitelisted for the DAV Token Sale. Please watch this <a href=\"#\">video contribution tutorial</a> on how to participate and join our token sale below.");
                         $("#whitelisted-join-token-sale-button,.kyc-telegram").removeClass('hide');
                         $("#forgot-wallet-address").removeClass('hide');
                         $("#forgot-wallet-address").on('click',function (e) {
@@ -420,24 +435,30 @@ $(document).ready(function(){
                         });
                         break;
                     case "Failed":
-                    case "CheckRequired":
+                        title = "Your KYC application failed to process automatically.";
+                        gaTitle = 'Your KYC application failed to process automatically.';
+                        $(".kyc-response").html("Our team is currently reviewing your application manually, but you may also re-submit by clicking the button below. Our systems tell us your KYC application should be able to be processed automatically by doing the following:<br><br><b>" + data.suggestionText + "</b>");
+                        $(".kyc-button,.kyc-medium,.kyc-questions").removeClass('hide');
+                        $(".kyc-button").attr("href","https://nessie.dav.network/join?email="+email);
+                        break;
+                        case "CheckRequired":
                         title = "Your KYC application is currently being processed.";
                         gaTitle = 'Your KYC application is currently being processed.';
                         $(".kyc-response").text("You’ll receive an email once your application has been processed with next steps.");
-                        $(".kyc-close,.kyc-telegram3").removeClass('hide');
+                        $(".kyc-close,.kyc-questions").removeClass('hide');
                         break;
                     case "Rejected":
                         title = "Your KYC application has not been accepted.";
                         gaTitle = 'Your KYC application has not been accepted.';
                         $(".kyc-response").html("If you believe your KYC has been rejected by mistake we ask that you please resubmit your KYC by clicking the button below. Our systems tell us you should be able to successfully complete your KYC by doing the following:<br><br><b>" + data.suggestionText + "</b>");
-                        $(".kyc-button,.kyc-medium,.kyc-telegram2").removeClass('hide');
+                        $(".kyc-button,.kyc-medium,.kyc-questions").removeClass('hide');
                         $(".kyc-button").attr("href","https://nessie.dav.network/join?email="+email);
                         break;
                     case "Expired":
                         title = "Your KYC application has expired.";
                         gaTitle = 'Your KYC application has expired.';
                         $(".kyc-response").text("We ask you to please resubmit your KYC by clicking the button below.");
-                        $(".kyc-close,.kyc-medium,.kyc-telegram2").removeClass('hide');
+                        $(".kyc-close,.kyc-medium,.kyc-questions").removeClass('hide');
                         break;
                     case "Started":
                         gaTitle = 'email not exist';
