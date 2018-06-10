@@ -30,7 +30,7 @@ body {
 }
 
 .dav-logo {
-    background: url('../img/logo.png');
+    background: url('../img/Tok_Sale_logo.png');
     background-size: 100% auto;
     background-repeat: no-repeat;
 }
@@ -174,7 +174,7 @@ input {
         }
 
         .dav-logo {
-            width: 50%;
+            width: 40%;
             height: 12vw;
             position: absolute;
             left: 50%;
@@ -247,6 +247,10 @@ input {
 
             @include not-desktop {
                 display: block;
+                margin: auto;
+                position: relative;
+                width: 40%;                
+                height: 40%;
             }
         }
 
