@@ -1,29 +1,9 @@
-$orange: #ff6a46;
-$tablet-width: 600px;
-$desktop-width: 1024px;
+@import "common.scss";
 
 @mixin transition-speed($time,$effect){
 	-webkit-transition: all $time $effect;
 				-moz-transition: all $time $effect;
 				transition: all $time $effect;
-}
-
-@mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media (max-width: #{$tablet-width}) {
-    @content;
-  }
 }
 
 body{
@@ -269,10 +249,14 @@ input {
 .telegram-bottom.extra-space{
 	bottom: 60px;
 }
+#hero-register-button {
+	text-decoration: none;
+}
 .hero{
 	background: #000 url('../img/hero.jpg') no-repeat center;
 	background-size: cover;
 	color: #FFF;
+
 	&.index2{
 		.hero-inner{
 			.hero-valign{
@@ -509,7 +493,7 @@ input {
 		background-size: cover;
 	}
 	&.hero-ico{
-		background: #000 url('../img/hero-new.jpg') no-repeat center;
+		background: #000 url('../img/hero-new.jpg') no-repeat center center;
 		background-size: cover;
 		overflow: hidden;
 
@@ -536,8 +520,12 @@ input {
 			}
 			h6{
 				font-weight: 400;
-				font-size: 14px;
+				font-size: 15px;
 				margin-bottom: 20px;
+				a{
+					color: #FFF;
+					text-decoration: underline;
+				}
 			}
 			p.restriction{
 				font-size: 14px;
@@ -3906,9 +3894,6 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 	footer .about-legal .social a{
 		min-width: 49%;
 	}
-	.hero.hero-ico{
-		background-position: left 15% top;
-	}
 	.hero.hero-ico .hero-inner .hero-valign .ico-start-box{
 		margin-bottom: 30px;
 		padding: 20px 0;
@@ -4385,9 +4370,6 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 	}
 	.telegram-bottom.extra-space {
     	bottom: 140px;
-	}
-	.hero.hero-ico{
-		background-position: left 24% top;
 	}
 	.hero.hero-ico .hero-inner .hero-valign{
 		h1{
