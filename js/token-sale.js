@@ -74,9 +74,11 @@ $(document).ready(function(){
         $('#another-wallet-modal').removeClass('hide');
     })
 
-    $('#close-button').click(function() {
+    $('.close-button').click(function() {
         $('#curtain').addClass('hide');
-        $('#modal').addClass('hide')
+        $('#modal').addClass('hide');
+        $('#another-wallet-modal').addClass('hide');
+
     })
 });
 
@@ -209,7 +211,7 @@ function forgotWalletAddress(email) {
         success: function (data) {
             $('#curtain').removeClass('hide');
             $('#modal').removeClass('hide');
-            $('#modal-text').text('Please check your email. We\'ve sent you the wallet address you have whitelisted with DAV.');
+            $('#modal-text').text('We\'ve sent you the wallet address you have whitelisted with DAV.');
         }
       });
 }
