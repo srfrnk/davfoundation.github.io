@@ -465,7 +465,7 @@ input {
 
 @include not-desktop {
        
-    #container.sale-page {
+    #container.sale-page, #container.ouner-details {
         flex-direction: column;
 
         .left-section {

@@ -31,12 +31,12 @@ $(document).ready(function(){
         event.preventDefault();
         if (validateOunerDetailsForm(ounerDetailsForm, moreBeneficial)) {
             $('#container').addClass('go-out');
-            var addressInfo = ounerDetailsForm.serializeArray();
+            var addressInfo = ounerDetailsForm.serialize();
             $.ajax({
                 type: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 url: 'https://nessie.dav.network/tokensalevalidation?',
-                dataType: 'json',
-                body: objectifyForm(addressInfo),
+                data: addressInfo,
                 success: startTokenSale
             });
             
@@ -171,7 +171,7 @@ function showErrorPage(title) {
 }
 
 function startTokenSale(data) {
-    debugger
+    $('#contracts-address').val(data.contractAddress);
     $('.token-sale').show();
     $('.welcome-section, .error, .home-address').addClass('hide');
     $('#container').removeClass('go-out').addClass('sale-page');
@@ -180,7 +180,7 @@ function startTokenSale(data) {
 function showHomeAddressForm() {
     $('.home-address').removeClass('hide');
     $('.welcome-section, .error').addClass('hide');
-    $('#container').removeClass('go-out').addClass('home-address');
+    $('#container').removeClass('go-out').addClass('ouner-details');
 }
 
 function showErrorMsg(el, msg) {
