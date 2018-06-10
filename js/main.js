@@ -415,7 +415,24 @@ $(document).ready(function(){
                         title = "Congratulations!";
                         gaTitle = 'Congratulations';
                         $(".kyc-response").html("You’re now officially whitelisted for the DAV Token Sale. Please watch this <a href=\"#\">video contribution tutorial</a> on how to participate and join our token sale below.");
-                        $(".kyc-close").removeClass('hide');
+                        $("#whitelisted-join-token-sale-button,.kyc-telegram").removeClass('hide');
+                        $("#forgot-wallet-address").removeClass('hide');
+                        $("#forgot-wallet-address").on('click',function (e) {
+                          e.preventDefault();
+                          $.ajax({
+                            type: 'GET',
+                            url: "https://nessie.dav.network/restorewalletaddress?email="+email,
+                            dataType: 'json',
+                            success: function (data) {
+                              $("#whitelisted-join-token-sale-button,.kyc-telegram").addClass('hide');
+                              $("#forgot-wallet-address").addClass('hide');
+                              $(".kyc-title").text('');
+                              $(".kyc-response").text("");
+                              $(".kyc-response").html("Your wallet address has been sent to <b>" + decodeURIComponent(email) + "</b>");
+                              $(".kyc-close").removeClass('hide');
+                            }
+                          });
+                        });
                         break;
                     case "Failed":
                         title = "Your KYC application failed to process automatically.";
