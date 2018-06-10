@@ -361,11 +361,7 @@ input {
   width: 296px;
   text-align: center; }
   #contracts-address .button {
-    display: block;
-    width: 128px;
-    margin: auto;
-    padding: 4px 12px;
-    margin-top: 32px; }
+    padding: 8px 12px; }
   #contracts-address p {
     text-align: left; }
 
@@ -389,11 +385,22 @@ input {
   min-height: 128px;
   padding: 32px;
   z-index: 999; }
-  .modal #close-button {
+  .modal .title {
+    font-size: 24px;
+    width: 100%;
+    text-align: center; }
+  .modal .close-button {
     position: absolute;
     right: 8px;
     top: 8px;
-    cursor: pointer; }
+    cursor: pointer;
+    font-size: 24px; }
+  .modal .button {
+    display: block;
+    width: 192px;
+    margin: auto;
+    padding: 4px 12px;
+    margin-top: 32px; }
 
 .contact-us {
   font-size: 14px;
