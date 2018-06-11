@@ -1142,16 +1142,16 @@ input {
   .people-are-talking .slick-slide img {
     display: inline-block; }
 
-.join-telegram {
+.join-telegram, .crowd-sale {
   background: #ff6a46;
   color: #FFF;
   text-align: center;
   padding: 40px 0; }
-  .join-telegram h2 {
+  .join-telegram h2, .crowd-sale h2 {
     font-size: 25px;
     font-weight: 700;
     margin: 0 0 30px; }
-  .join-telegram a {
+  .join-telegram a, .crowd-sale a {
     color: #FFF;
     display: inline-block;
     border: 1px solid #FFF;
@@ -1161,9 +1161,9 @@ input {
     font-size: 14px;
     font-weight: 700;
     padding: 0 35px; }
-    .join-telegram a:hover {
+    .join-telegram a:hover, .crowd-sale a:hover {
       text-decoration: none; }
-    .join-telegram a img {
+    .join-telegram a img, .crowd-sale a img {
       margin-right: 8px; }
 
 .team {
@@ -1524,49 +1524,6 @@ input {
       margin: 0 0 0 5px; }
     .daily-dav a:active, .daily-dav a:focus, .daily-dav a:hover {
       text-decoration: none; }
-
-.crowd-sale {
-  background: #ff6a46;
-  padding: 40px 0 60px;
-  text-align: center; }
-  .crowd-sale h3 {
-    color: #FFF;
-    font-size: 17px;
-    font-weight: 700;
-    margin: 0 0 20px; }
-  .crowd-sale .join-crowd-sale {
-    width: 385px;
-    margin: 0 auto; }
-    .crowd-sale .join-crowd-sale input[type=email] {
-      border: 1px solid #FFF;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, 0.3);
-      background: transparent;
-      height: 37px;
-      display: block;
-      width: 100%;
-      padding: 0 10px;
-      font-weight: 500;
-      color: #FFF;
-      font-size: 15px; }
-      .crowd-sale .join-crowd-sale input[type=email]::-webkit-input-placeholder {
-        color: #FFF; }
-      .crowd-sale .join-crowd-sale input[type=email]:-moz-placeholder {
-        color: #FFF; }
-      .crowd-sale .join-crowd-sale input[type=email]::-moz-placeholder {
-        color: #FFF; }
-      .crowd-sale .join-crowd-sale input[type=email]:-ms-input-placeholder {
-        color: #FFF; }
-    .crowd-sale .join-crowd-sale input[type=submit] {
-      border-radius: 3px;
-      font-size: 15px;
-      font-weight: bold;
-      color: #ff6a46;
-      background: #FFF;
-      border: 1px solid #FFF;
-      display: block;
-      width: 100%;
-      height: 37px; }
 
 .faq-questions {
   padding-top: 75px;
