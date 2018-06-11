@@ -1831,6 +1831,8 @@ footer {
     font-size: 30px;
     position: absolute;
     padding: 0 4px; }
+  .alert-announcement .alert-announcement-separator {
+    margin: 0 6px; }
   .alert-announcement p {
     font-size: 15px;
     padding-left: 30px;
@@ -3159,6 +3161,8 @@ footer {
     .alert-announcement p {
       font-size: 13px;
       line-height: 20px; }
+    .alert-announcement .alert-announcement-separator {
+      display: none; }
     .alert-announcement .close {
       line-height: 20px; }
   @-webkit-keyframes balls {

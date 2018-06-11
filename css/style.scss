@@ -2303,6 +2303,9 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 		position: absolute;
 		padding: 0 4px;
 	}
+	.alert-announcement-separator {
+		margin: 0 6px;
+	}
 	p{
 		font-size: 15px;
 		padding-left: 30px;
@@ -4058,6 +4061,9 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 		p{
 			font-size: 13px;
 			line-height: 20px;
+		}
+		.alert-announcement-separator {
+			display: none;
 		}
 		.close{
 			line-height: 20px;
