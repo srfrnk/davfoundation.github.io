@@ -7,8 +7,6 @@ var web3Provider = new Web3
     .providers
     .HttpProvider(ETH_NODE_URL);
 var web3 = new Web3(web3Provider);
-window.contractInstance = new web3.eth.Contract(window.contractArtifact.abi, window.contractArtifact.address);
-var weiRaised = null;
 var KYC_MEMBERS_URL = 'https://nessie.dav.network/members';
 
 function numberWithCommas(number) {
@@ -22,16 +20,18 @@ function updateEthWhitelisted() {
     url: KYC_MEMBERS_URL,
     type: 'GET',
     success: function(result) {
-      let ethWhitelisted = result;
+      let ethWhitelisted = result.whitelisted;
       increaseWithAnimation($("#eth-whitelisted"), ethWhitelisted);
     }
   });
 }
 
 function updateEthRaised() {
-  window.contractInstance.methods.weiRaised().call(function(error, results) {
-    if(!error) {
-      weiRaised = results;
+  $.ajax({
+    url: KYC_MEMBERS_URL,
+    type: 'GET',
+    success: function(result) {
+      weiRaised = results.weiRaised;
       var ethRaisedValue = Number(web3.utils.fromWei(weiRaised, 'ether'));
       increaseWithAnimation($("#eth-raised"), ethRaisedValue);
     }
