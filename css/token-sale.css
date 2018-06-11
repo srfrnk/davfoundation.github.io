@@ -1,8 +1,10 @@
 body {
   margin: 0;
-  font-family: 'Montserrat';
   line-height: 1.4em;
   max-width: 100vw; }
+
+* {
+  font-family: 'Montserrat'; }
 
 .hide {
   display: none; }
@@ -81,7 +83,8 @@ input {
 
 #container {
   display: flex;
-  width: 100vw; }
+  width: 100vw;
+  overflow-x: hidden; }
   #container .left-section {
     background-color: #efefef;
     width: 50%;
@@ -224,7 +227,8 @@ input {
     #container .right-section .home-address button {
       display: block;
       margin: 24px auto 0;
-      padding: 1px 16px; }
+      padding: 0 24px;
+      line-height: 16px; }
     #container .right-section .home-address b {
       text-transform: uppercase; }
     #container .right-section .home-address p {
@@ -297,6 +301,11 @@ input {
   @media (max-width: 600px) {
     .address-container {
       padding: 16px; } }
+  .address-container input:focus,
+  .address-container select:focus,
+  .address-container textarea:focus,
+  .address-container button:focus {
+    outline: none; }
   .address-container > div {
     display: inline-flex;
     text-align: left; }
@@ -358,7 +367,7 @@ input {
   color: black;
   padding: 0;
   height: 12px;
-  width: 296px;
+  width: 310px;
   text-align: center; }
   #contracts-address .button {
     padding: 8px 12px; }
@@ -395,12 +404,28 @@ input {
     top: 8px;
     cursor: pointer;
     font-size: 24px; }
+    .modal .close-button.button {
+      position: static; }
   .modal .button {
     display: block;
     width: 192px;
     margin: auto;
     padding: 4px 12px;
     margin-top: 32px; }
+
+.prompt {
+  position: fixed;
+  background-color: #ff6a46;
+  bottom: 12px;
+  right: 12px;
+  opacity: 0.9;
+  transition: .5s;
+  padding: 12px;
+  color: white;
+  border-radius: 4px; }
+  .prompt.hide {
+    bottom: -64px;
+    display: block; }
 
 .contact-us {
   font-size: 14px;
