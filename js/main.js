@@ -436,8 +436,8 @@ $(document).ready(function(){
                       title = "Your KYC application failed to process automatically.";
                       gaTitle = 'Your KYC application failed to process automatically.';
                       $(".kyc-response").html("Our team is currently reviewing your application manually, but you may also re-submit by clicking the button below. Our systems tell us your KYC application should be able to be processed automatically by doing the following:<br><br><b>" + data.suggestionText + "</b>");
-                      $(".kyc-button,.kyc-medium,.kyc-questions").removeClass('hide');
-                      $(".kyc-button").attr("href","https://nessie.dav.network/join?email="+email);
+                      $(".kyc-return,.kyc-medium,.kyc-questions").removeClass('hide');
+                      $(".kyc-return").attr("href","https://nessie.dav.network/join?email="+email);
                       break;
                     case "CheckRequired":
                         title = "Your KYC application is currently being processed.";
@@ -449,13 +449,15 @@ $(document).ready(function(){
                         title = "Your KYC application has not been accepted.";
                         gaTitle = 'Your KYC application has not been accepted.';
                         $(".kyc-response").html("If you believe your KYC has been rejected by mistake we ask that you please resubmit your KYC by clicking the button below. Our systems tell us you should be able to successfully complete your KYC by doing the following:<br><br><b>" + data.suggestionText + "</b>");
-                        $(".kyc-button,.kyc-medium,.kyc-questions").removeClass('hide');
+                        $(".kyc-return,.kyc-medium,.kyc-questions").removeClass('hide');
+                        $(".kyc-return").attr("href","https://nessie.dav.network/join?email="+email);
                         break;
                     case "Expired":
                         title = "Your KYC application has expired.";
                         gaTitle = 'Your KYC application has expired.';
                         $(".kyc-response").text("We ask you to please resubmit your KYC by clicking the button below.");
-                        $(".kyc-close,.kyc-medium,.kyc-questions").removeClass('hide');
+                        $(".kyc-close,.kyc-medium,.kyc-questions,.return").removeClass('hide');
+                        $(".kyc-return").attr("href","https://nessie.dav.network/join?email="+email);
                         break;
                     case "Started":
                         gaTitle = 'email not exist';
