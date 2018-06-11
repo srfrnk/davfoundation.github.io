@@ -7,6 +7,8 @@ $(document).ready(function(){
     var mailCheckForm = $('#email-form');
     var ounerDetailsForm = $('#ouner-details-form');
     var anotherPersonDetails = $('#another-person');
+    var curtain = $('#curtain');
+    var prompMsg = $('.prompt');
 
     mailCheckForm.submit(function (event){
         event.preventDefault()
@@ -32,6 +34,7 @@ $(document).ready(function(){
         if (validateOunerDetailsForm(ounerDetailsForm, moreBeneficial)) {
             $('#container').addClass('go-out');
             var addressInfo = ounerDetailsForm.serialize();
+            addressInfo = addressInfo + '&email=' + mailInput.val();
             $.ajax({
                 type: 'POST',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -63,6 +66,11 @@ $(document).ready(function(){
         var copyText = document.querySelector("#contracts-address");
         copyText.select();
         document.execCommand("copy");
+        prompMsg.removeClass('hide');
+        setTimeout(function() {
+            prompMsg.addClass('hide');
+        }, 3000);
+        
     })
 
     $('#forgot-wallet-address').click(function() {
@@ -70,26 +78,17 @@ $(document).ready(function(){
     })
     
     $('#another-wallet').click(function() {
-        $('#curtain').removeClass('hide');
+        curtain.removeClass('hide');
         $('#another-wallet-modal').removeClass('hide');
     })
 
     $('.close-button').click(function() {
-        $('#curtain').addClass('hide');
+        curtain.addClass('hide');
         $('#modal').addClass('hide');
         $('#another-wallet-modal').addClass('hide');
 
     })
 });
-
-function objectifyForm(formArray) {
-
-    var returnArray = {};
-    for (var i = 0; i < formArray.length; i++){
-      returnArray[formArray[i]['name']] = formArray[i]['value'];
-    }
-    return returnArray;
-}
 
 function checkEmail(email) {
     if (validateEmail(email)) {
@@ -139,7 +138,6 @@ function validateEmail(email) {
 
 function kycHendler(email) {
     return function(data) {
-        // var foo = 'ManualFinish'
         var title = '';
         switch(data.statusText) {
             case "ManualFinish":
@@ -211,7 +209,6 @@ function forgotWalletAddress(email) {
         success: function (data) {
             $('#curtain').removeClass('hide');
             $('#modal').removeClass('hide');
-            $('#modal-text').text('We\'ve sent you the wallet address you have whitelisted with DAV.');
         }
       });
 }
