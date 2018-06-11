@@ -140,8 +140,11 @@ function kycHendler(email) {
     return function(data) {
         var title = '';
         switch(data.statusText) {
+            case "AutoFinish":
             case "ManualFinish":
-            showHomeAddressForm();
+                showHomeAddressForm();
+                break;
+            case "Failed":
             case "CheckRequired":
                 title = "Your KYC application is currently being processed.";
                 $(".kyc-response").text("You’ll receive an email once your application has been processed with next steps.");

@@ -162,17 +162,21 @@ input {
       transform: translate(-50%, -50%);
       left: 50%;
       top: 45%; }
+      #container .right-section .welcome-section p {
+        font-size: 20px;
+        text-align: center; }
       @media (max-width: 1023px) {
         #container .right-section .welcome-section {
           position: static;
           transform: translate(0, 0);
-          margin-top: 16px; } }
-      #container .right-section .welcome-section p {
-        font-size: 16px;
-        text-align: center; }
+          margin-top: 16px; }
+          #container .right-section .welcome-section p {
+            font-size: 16px; } }
       #container .right-section .welcome-section form {
         display: flex;
-        position: relative; }
+        position: relative;
+        max-width: 512px;
+        margin: auto; }
         #container .right-section .welcome-section form input {
           width: 66%;
           margin: 0 4px 0 0; }
@@ -224,6 +228,8 @@ input {
     #container .right-section .home-address .title {
       font-size: 20px;
       text-align: center; }
+    #container .right-section .home-address label {
+      display: flex; }
     #container .right-section .home-address button {
       display: block;
       margin: 24px auto 0;
@@ -238,7 +244,7 @@ input {
       #container .right-section .home-address .paragraf p {
         margin: 4px 0; }
     #container .right-section .home-address input {
-      font-size: 14px; }
+      font-size: 13px; }
     #container .right-section .home-address .secondary-title {
       margin: 24px 0 4px 0; }
     #container .right-section .home-address .input-field {
@@ -297,7 +303,9 @@ input {
   line-height: 1em;
   padding: 16px 32px;
   margin: 24px 0px;
-  text-align: center; }
+  text-align: center;
+  max-width: 576px;
+  margin: auto; }
   @media (max-width: 600px) {
     .address-container {
       padding: 16px; } }
@@ -411,7 +419,8 @@ input {
     width: 192px;
     margin: auto;
     padding: 4px 12px;
-    margin-top: 32px; }
+    margin-top: 32px;
+    font-size: 18px; }
 
 .prompt {
   position: fixed;
