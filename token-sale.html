@@ -56,9 +56,9 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/mbk51jQ9BT4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>  
           <div class="details">
-            <div class="deatal-blok">1ETH = 10,000DAV</div>
-            <div class="deatal-blok">Min. Contribution = 0.2ETH</div>
-            <div class="deatal-blok">Max. Contribution = 150ETH</div>
+            <div class="deatal-blok">1 ETH = 10,000 DAV</div>
+            <div class="deatal-blok">Min. Contribution = 0.2 ETH</div>
+            <div class="deatal-blok">Max. Contribution = 150 ETH</div>
           </div>  
           <a href="https://dav.network/token-sale-details.html" target="_blank">View Full Token Sale Details</a>
           <div class="contact-us"><span>Got a question? Email us at </span><a href="mailto:questions@dav.network">questions@dav.network</a></div>
@@ -127,12 +127,16 @@
               <input class="input-field" name="ownerAddress" placeholder="Home address (actual address of domicile)">
               <p class="secondary-title"><b>The Purchaser of DAV Tokens hereby declares that:</b></p>
               <div class="radio-button">
-                  <input type="radio" name="soleBeneficial" value="true" checked="checked">
-                  <p>He/she is the sole beneficial owner of the purchased DAV Tokens.</p>    
+                <label>
+                    <input type="radio" name="soleBeneficial" value="true" checked="checked">
+                    <p>He/she is the sole beneficial owner of the purchased DAV Tokens.</p>      
+                </label>
               </div>
               <div class="radio-button">
-                  <input type="radio" name="soleBeneficial" value="">
-                  <p>The person(s) listed below is/are the beneficial owner(s) of the purchased DAV Tokens:</p>    
+                  <label>
+                    <input type="radio" name="soleBeneficial" value="">
+                    <p>The person(s) listed below is/are the beneficial owner(s) of the purchased DAV Tokens:</p>    
+                  </label>
               </div>
               <div id="another-person" class="hide">
                   <input class="input-field" name="otherSurnames" placeholder="Surname(s)">
@@ -143,12 +147,16 @@
               </div>
               <p class="secondary-title"><b>Please Confirm The Below:</b></p>
               <div class="radio-button">
-                <input type="checkbox" name="undertakesInformChanges">
-                <p>The Purchaser of DAV Tokens hereby undertakes to inform automatically DAV of any changes to the information contained herein.</p>
+                <label>
+                  <input type="checkbox" name="undertakesInformChanges">
+                  <p>The Purchaser of DAV Tokens hereby undertakes to inform automatically DAV of any changes to the information contained herein.</p>
+                </label>
               </div>
               <div class="radio-button">
-                <input type="checkbox" name="acknowledgeCriminalOffence">
-                <p>The Purchaser of DAV acknowledges that it is a criminal offence to deliberately provide false information on this form (article 251 of the Swiss Criminal Code, document forgery).</p>
+                <label>
+                  <input type="checkbox" name="acknowledgeCriminalOffence">
+                  <p>The Purchaser of DAV acknowledges that it is a criminal offence to deliberately provide false information on this form (article 251 of the Swiss Criminal Code, document forgery).</p>
+                </label>
               </div>
               <button class="button disabled" disabled="disabled" type="submit">PURCHASE DAV TOKENS</button>
           </form>
@@ -157,7 +165,7 @@
         <div class="token-sale">
           <div class="title">Purchase DAV Tokens</div>
           <p style="text-align: center"><b>DO NOT SEND FUNDS FROM AN EXCHANGE ACCOUNT</b></p>    
-          <p>To purchase DAV Tokens please send ETH to the below address. Do not send any currency other than ETH. Send ETH from an Ethereum wallet to which you hold the private key:</p>
+          <p>To purchase DAV Tokens please send ETH to the following address:</p>
           <div class="address-container">
             <div>
                 <div class="address">
@@ -170,7 +178,7 @@
                 <div class="button" readonly id="copy-to-clipboard">COPY TO CLIPBOARD</div>    
             </div>
           </div>
-          <p><b>Note: </b>Only send funds from the wallet you have whitelisted for the DAV token sale. We encourage you to set a gas limit of 300,000 and gas price suggested by your wallet. To prevent gas wars if you exceed the maximum amount outlined below, your transaction will be rejected.</p>
+          <p><b>Note: </b>Do not send any currency other than ETH. Only send ETH from an Ethereum wallet to which you hold the private key and that you have whitelisted for the DAV token sale. We encourage you to set a gas limit of 300,000 and the gas price suggested by your wallet. To prevent gas wars if you exceed a gas price of 50 Gwei, your transaction will be rejected.</p>
           <div class="details">
             <div>
               <a id="forgot-wallet-address">Forgot wallet address?</a>
@@ -180,7 +188,7 @@
           <div class="details">
             <div>
                 <div class="deatal-blok">Maximum Gas Limit: 300,000</div>
-                <div class="deatal-blok">Maximum Gas Price: 50Gwei</div>    
+                <div class="deatal-blok">Maximum Gas Price: 50 Gwei</div>    
             </div>
           </div>
           <div class="seperator"></div>
@@ -194,7 +202,7 @@
     <div id="modal" class="modal hide">
         <div class="close-button">&#10005</div>
         <div class="title">Please check your email</div>
-        <p id="modal-text">We\'ve sent you the wallet address you have whitelisted with DAV.</p>
+        <p id="modal-text">We've sent you the wallet address you have whitelisted with DAV.</p>
         <div  class="button close-button">Close</div>
     </div>   
     <div id="another-wallet-modal" class="modal hide">
