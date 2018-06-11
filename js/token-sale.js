@@ -140,8 +140,11 @@ function kycHendler(email) {
     return function(data) {
         var title = '';
         switch(data.statusText) {
+            case "AutoFinish":
             case "ManualFinish":
-            showHomeAddressForm();
+                showHomeAddressForm(email);
+                break;
+            case "Failed":
             case "CheckRequired":
                 title = "Your KYC application is currently being processed.";
                 $(".kyc-response").text("You’ll receive an email once your application has been processed with next steps.");
@@ -189,10 +192,25 @@ function startTokenSale(data) {
     $('#container').removeClass('go-out').addClass('sale-page');
 }
 
-function showHomeAddressForm() {
+function showHomeAddressForm(email) {
+    saveTimestamp(email);
     $('.home-address').removeClass('hide');
     $('.welcome-section, .error').addClass('hide');
     $('#container').removeClass('go-out').addClass('ouner-details');
+}
+
+function saveTimestamp(email) {
+    $.ajax({
+        type: 'POST',
+        url: "https://nessie.dav.network/formwatch",
+        data: { email },
+        success: function(data) {
+            console.log('Timestamp saved');
+        },
+        error: function(error) {
+            console.log(error);
+        }
+      });
 }
 
 function showErrorMsg(el, msg) {
