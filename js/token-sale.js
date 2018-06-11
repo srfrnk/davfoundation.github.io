@@ -29,7 +29,7 @@ $(document).ready(function(){
         }
     });
 
-    ounerDetailsForm.submit(function () {
+    ounerDetailsForm.submit(function (event) {
         event.preventDefault();
         if (validateOunerDetailsForm(ounerDetailsForm, moreBeneficial)) {
             $('#container').addClass('go-out');
@@ -47,14 +47,14 @@ $(document).ready(function(){
     })
 
     ounerDetailsForm.find('[type="checkbox"]').change(function () {
-        var isUserEgread = true;
+        var isUserAgreed = true;
         ounerDetailsForm.find('[type="checkbox"]').each(function(index, checkbox) {
-            if (!$(checkbox).is(':checked')) isUserEgread = false;
+            if (!$(checkbox).is(':checked')) isUserAgreed = false;
         });
-        if (isUserEgread) {
-            ounerDetailsForm.find('[type="submit"]').removeClass('disabled');
+        if (isUserAgreed) {
+            ounerDetailsForm.find('[type="submit"]').removeClass('disabled').prop('disabled', false);
         } else {
-            ounerDetailsForm.find('[type="submit"]').addClass('disabled');
+            ounerDetailsForm.find('[type="submit"]').addClass('disabled').prop('disabled', true);
         }
     });
 
