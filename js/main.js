@@ -64,7 +64,7 @@ $(document).ready(function(){
     updateEthRaised();  
   } , 10000);
 
-  getVisitorCountry(setDifferentCtaForDifferentCountry, function(){$(".telegram-bottom").addClass("telegram-loaded");});
+  $(".telegram-bottom").addClass("telegram-loaded");
 
   // color switch for nav
    var scroll_start = 0;
@@ -694,28 +694,6 @@ function setDifferentCtaForAdwordsUsers() {
     changeFloatingButtonIcon('fa-angle-double-right');
   }
 
-}
-function setDifferentCtaForDifferentCountry(country) {
-  switch (country) {
-    case 'South Korea' :
-      $floatingButton.find('span').html('한글<br>설명서');
-      var kycRegistrationUrl = 'https://medium.com/davnetwork/dav-%ED%86%A0%ED%81%B0-%EC%84%B8%EC%9D%BC%EC%9D%84-%EC%9C%84%ED%95%9C-kyc-%EC%9D%B8%EC%A6%9D-%EC%99%84%EB%A3%8C%ED%95%98%EA%B8%B0-cd83a2ab162b';
-      $floatingButton.attr('href', kycRegistrationUrl);
-      changeFloatingButtonIcon('korean-flag');
-      break;
-  }
-}
-
-function getVisitorCountry(cb1, cb2) {
-  $.post('https://www.googleapis.com/geolocation/v1/geolocate?key=' + GOOGLE_GEOLOCATION_API_KEY, function(data) {
-    var latlng = {lat: data.location.lat, lng: data.location.lng};
-    var geocoder = new google.maps.Geocoder;
-    geocoder.geocode({location: latlng}, function(data) {
-      var country = data.filter(function(place){return place.types.indexOf('country') > -1})[0].formatted_address;
-      cb1(country);
-      cb2(country);
-    })
-  }).fail(cb2);
 }
 
 function isAdwordsRedirect() {
