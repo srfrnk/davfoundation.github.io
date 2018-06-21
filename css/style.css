@@ -38,6 +38,8 @@ input {
 
 .ico-start-box .token-sale-title {
   padding-bottom: 15px; }
+  .ico-start-box .token-sale-title h3 {
+    font-size: 22px !important; }
 
 .ico-start-box .token-sale-announcement {
   padding: 5%; }
@@ -48,7 +50,6 @@ input {
 .ico-start-box h3 {
   color: #ff6a46;
   font-weight: bold;
-  font-size: 26px;
   margin-bottom: 13px; }
 
 .ico-start-box h2 {
@@ -58,7 +59,7 @@ input {
   margin-top: 8px; }
 
 .ico-start-box h6 {
-  font-weight: bold !important; }
+  font-weight: 300 !important; }
 
 .ico-start-box h4 {
   font-weight: bold;
