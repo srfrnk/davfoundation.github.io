@@ -3281,6 +3281,14 @@ footer {
   .alert-announcement {
     margin-bottom: 0px;
     padding: 15px; }
+    .alert-announcement::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0; }
     .alert-announcement p {
       font-size: 13px;
       line-height: 20px; }
@@ -3289,7 +3297,8 @@ footer {
     .alert-announcement .close {
       line-height: 20px;
       min-width: 45px;
-      min-height: 45px; }
+      min-height: 45px;
+      z-index: 2; }
   @-webkit-keyframes balls {
     from {
       -webkit-transform: translateY(0); }
