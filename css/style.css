@@ -2687,6 +2687,11 @@ footer {
           margin-right: 8px;
           text-align: center;
           border-radius: 50%; }
+      .kyc-page ol.number-list .token-information, .kyc-page ul.number-list .token-information {
+        margin: 4px 0 0 36px; }
+        .kyc-page ol.number-list .token-information div span, .kyc-page ul.number-list .token-information div span {
+          width: 10px;
+          height: 10px; }
     .kyc-page ol.high-line > li, .kyc-page ul.high-line > li {
       line-height: 32px; }
   .kyc-page p, .kyc-page li {
@@ -3612,5 +3617,3 @@ footer {
   margin: 4px 6px 10px 8px;
   background-size: cover;
   background-image: url("../img/dav_token_symbol.svg"); }
-
-/*# sourceMappingURL=style.css.map */
