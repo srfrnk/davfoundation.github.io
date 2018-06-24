@@ -116,6 +116,13 @@ input {
     font-weight: bold;
     cursor: pointer; }
 
+#error-msg {
+  width: 100%;
+  display: none;
+  color: red;
+  position: absolute;
+  bottom: -32px; }
+
 .margin-top0 {
   margin-top: 0 !important; }
 
@@ -3612,5 +3619,3 @@ footer {
   margin: 4px 6px 10px 8px;
   background-size: cover;
   background-image: url("../img/dav_token_symbol.svg"); }
-
-/*# sourceMappingURL=style.css.map */

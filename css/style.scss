@@ -142,6 +142,15 @@ input {
 		}
 	}
 }
+
+#error-msg {
+    width: 100%;
+    display: none;
+    color: red;
+    position: absolute;
+    bottom: -32px;
+}
+
 .margin-top0 {
 	margin-top: 0 !important;
 }
