@@ -40,12 +40,13 @@ input {
   padding-bottom: 15px; }
   .ico-start-box .token-sale-title h3 {
     font-size: 22px !important; }
+  .ico-start-box .token-sale-title h6 {
+    font-size: 16px !important; }
 
 .ico-start-box .token-sale-announcement {
   padding: 5%; }
   .ico-start-box .token-sale-announcement h6 {
-    margin-top: 20px;
-    font-size: 14px !important; }
+    margin-top: 20px; }
 
 .ico-start-box h3 {
   color: #ff6a46;
@@ -56,10 +57,12 @@ input {
   color: #ff6a46;
   font-weight: bold;
   font-size: 40px;
-  margin-top: 8px; }
+  margin-top: 8px;
+  text-decoration: underline; }
 
 .ico-start-box h6 {
-  font-weight: 300 !important; }
+  font-weight: 300 !important;
+  font-size: 16px !important; }
 
 .ico-start-box h4 {
   font-weight: bold;
