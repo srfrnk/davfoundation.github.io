@@ -294,7 +294,7 @@ input {
   background: #FFF; }
 
 .telegram-bottom.extra-space {
-  bottom: 60px; }
+  bottom: 48px; }
 
 #hero-register-button {
   text-decoration: none; }
@@ -3071,7 +3071,7 @@ footer {
   .fixed-container-width {
     width: 970px; }
   .telegram-bottom.extra-space {
-    bottom: 120px; }
+    bottom: 80px; }
   .hero.hero-ico .hero-inner .hero-valign .container-transparent h6 {
     font-size: 12px; }
   .people-are-talking .arrow-right.slick-arrow {
@@ -3287,7 +3287,9 @@ footer {
     .alert-announcement .alert-announcement-separator {
       display: none; }
     .alert-announcement .close {
-      line-height: 20px; }
+      line-height: 20px;
+      min-width: 45px;
+      min-height: 45px; }
   @-webkit-keyframes balls {
     from {
       -webkit-transform: translateY(0); }
@@ -3519,7 +3521,7 @@ footer {
   .station-box {
     margin-bottom: 50px; }
   .telegram-bottom.extra-space {
-    bottom: 140px; }
+    bottom: 100px; }
   .hero.hero-ico .hero-inner .hero-valign h1 {
     font-size: 28px;
     padding-top: 25px;
@@ -3596,6 +3598,10 @@ footer {
 
 .invalid {
   border-color: red !important; }
+
+@media (max-width: 362px) {
+  .telegram-bottom.extra-space {
+    bottom: 120px; } }
 
 @media (max-height: 767px) {
   #iphonex {
