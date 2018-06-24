@@ -3277,7 +3277,9 @@ footer {
     .alert-announcement .alert-announcement-separator {
       display: none; }
     .alert-announcement .close {
-      line-height: 20px; }
+      line-height: 20px;
+      min-width: 45px;
+      min-height: 45px; }
   @-webkit-keyframes balls {
     from {
       -webkit-transform: translateY(0); }
@@ -3587,7 +3589,7 @@ footer {
 .invalid {
   border-color: red !important; }
 
-@media (max-width: 320px) {
+@media (max-width: 362px) {
   .telegram-bottom.extra-space {
     bottom: 120px; } }
 
