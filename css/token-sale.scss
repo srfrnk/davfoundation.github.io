@@ -159,7 +159,11 @@ input {
                 font-size: $fontSize3;
                 text-align: center;
                 width: 100%;
+<<<<<<< HEAD
                 padding: 32px 0;
+=======
+                margin: 16px 0;
+>>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
             }
 
             .video-container {
@@ -237,7 +241,11 @@ input {
             top: 45%;
 
             p {
+<<<<<<< HEAD
                 font-size: 18px;
+=======
+                font-size: $fontSize3;
+>>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
                 text-align: center;
             }
 
@@ -333,14 +341,18 @@ input {
             .title {
                 font-size: $fontSize3;
                 text-align: center;
+<<<<<<< HEAD
 
                 @include mobile {
                     padding: 8px 0;
                 }
+=======
+>>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
             }
 
             label {
                 display: flex;
+<<<<<<< HEAD
 
                 input {
                     height: initial;
@@ -349,11 +361,14 @@ input {
                         transform: scale(1.5);
                     }
                 }
+=======
+>>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
             }
 
             button {
                 display: block;
                 margin: 24px auto 0;
+<<<<<<< HEAD
                 padding: 0 32px;
                 line-height: 16px;
                 font-size: $fontSize4;
@@ -362,6 +377,10 @@ input {
                     padding: 0 24px;
                     margin: 24px auto;
                 }
+=======
+                padding: 0 24px;
+                line-height: 16px;
+>>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
             }
 
             b {
@@ -571,6 +590,7 @@ input {
     color: black;
     padding: 0;
     height: 12px;
+<<<<<<< HEAD
     line-height: 12px;
     width: 310px;
     text-align: center;
@@ -581,6 +601,11 @@ input {
         width: 232px;
     }
 
+=======
+    width: 310px;
+    text-align: center;
+
+>>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
     .button {
         padding: 8px 12px;
     }
