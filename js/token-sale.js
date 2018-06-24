@@ -45,12 +45,7 @@ $(document).ready(function(){
             
         }
     })
-<<<<<<< HEAD
     function disableEnableSubmitMoreDetailsButton() {
-=======
-
-    ounerDetailsForm.find('[type="checkbox"]').change(function () {
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
         var isUserAgreed = true;
         ounerDetailsForm.find('[type="checkbox"]').each(function(index, checkbox) {
             if (!$(checkbox).is(':checked')) isUserAgreed = false;
@@ -59,16 +54,11 @@ $(document).ready(function(){
             ounerDetailsForm.find('[type="submit"]').removeClass('disabled').prop('disabled', false);
         } else {
             ounerDetailsForm.find('[type="submit"]').addClass('disabled').prop('disabled', true);
-<<<<<<< HEAD
         }    
     }
 
     disableEnableSubmitMoreDetailsButton();
     ounerDetailsForm.find('[type="checkbox"]').change(disableEnableSubmitMoreDetailsButton);
-=======
-        }
-    });
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
 
     $('input').focus(function() {
         $(this).removeClass('invalid');
@@ -76,7 +66,6 @@ $(document).ready(function(){
 
     $('#copy-to-clipboard').click(function() {
         var copyText = document.querySelector("#contracts-address");
-<<<<<<< HEAD
         try {
             iosCopyToClipboard(copyText);
         }
@@ -93,15 +82,6 @@ $(document).ready(function(){
                 prompMsg.addClass('hide');
             }, 3000);    
         }
-=======
-        copyText.select();
-        document.execCommand("copy");
-        prompMsg.removeClass('hide');
-        setTimeout(function() {
-            prompMsg.addClass('hide');
-        }, 3000);
-        
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
     })
 
     $('#forgot-wallet-address').click(function() {
@@ -113,18 +93,6 @@ $(document).ready(function(){
         curtain.removeClass('hide');
         $('#another-wallet-modal').removeClass('hide');
         ga('send', 'event', 'UseAnotherWallet-Button-Click', 'click', 'UseAnotherWallet-Button-Click');
-    })
-
-    $('.close-button').click(function() {
-        curtain.addClass('hide');
-        $('#modal').addClass('hide');
-        $('#another-wallet-modal').addClass('hide');
-
-    })
-    
-    $('#another-wallet').click(function() {
-        curtain.removeClass('hide');
-        $('#another-wallet-modal').removeClass('hide');
     })
 
     $('.close-button').click(function() {
@@ -256,10 +224,7 @@ function showErrorPage(title) {
 function startTokenSale(data) {
     if (!data.contractAddress) return $('#container').removeClass('go-out');
 
-<<<<<<< HEAD
     ga('send', 'event', 'TokenSalePage-LastPage-View', 'view', 'TokenSalePage-LastPage-View');
-=======
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
     $('#contracts-address').val(data.contractAddress);
     $('.token-sale').show();
     $('.welcome-section, .error, .home-address').addClass('hide');
@@ -297,11 +262,7 @@ function showErrorMsg(el, msg) {
 function forgotWalletAddress(email) {
     $.ajax({
         type: 'GET',
-<<<<<<< HEAD
         url: "https://nessie.dav.network/restorewalletaddress?email="+encodeURIComponent(email),
-=======
-        url: "https://nessie.dav.network/restorewalletaddress?email="+email,
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
         dataType: 'json',
         success: function (data) {
             $('#curtain').removeClass('hide');

@@ -112,11 +112,7 @@ input {
       font-size: 20px;
       text-align: center;
       width: 100%;
-<<<<<<< HEAD
       padding: 32px 0; }
-=======
-      margin: 16px 0; }
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
     #container .left-section .home-address .video-container {
       text-align: center; }
     #container .left-section .token-sale {
@@ -169,11 +165,7 @@ input {
       left: 50%;
       top: 45%; }
       #container .right-section .welcome-section p {
-<<<<<<< HEAD
         font-size: 18px;
-=======
-        font-size: 20px;
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
         text-align: center; }
       @media (max-width: 1023px) {
         #container .right-section .welcome-section {
@@ -238,7 +230,6 @@ input {
     #container .right-section .home-address .title {
       font-size: 20px;
       text-align: center; }
-<<<<<<< HEAD
       @media (max-width: 600px) {
         #container .right-section .home-address .title {
           padding: 8px 0; } }
@@ -260,15 +251,6 @@ input {
         #container .right-section .home-address button {
           padding: 0 24px;
           margin: 24px auto; } }
-=======
-    #container .right-section .home-address label {
-      display: flex; }
-    #container .right-section .home-address button {
-      display: block;
-      margin: 24px auto 0;
-      padding: 0 24px;
-      line-height: 16px; }
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
     #container .right-section .home-address b {
       text-transform: uppercase; }
     #container .right-section .home-address p {
@@ -419,7 +401,6 @@ input {
   color: black;
   padding: 0;
   height: 12px;
-<<<<<<< HEAD
   line-height: 12px;
   width: 310px;
   text-align: center; }
@@ -427,10 +408,6 @@ input {
     #contracts-address {
       font-size: 9px;
       width: 232px; } }
-=======
-  width: 310px;
-  text-align: center; }
->>>>>>> 0256b9e1f5a16cb21b3a3d4c2e42aaf91b33b618
   #contracts-address .button {
     padding: 8px 12px; }
   #contracts-address p {
