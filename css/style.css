@@ -40,12 +40,13 @@ input {
   padding-bottom: 15px; }
   .ico-start-box .token-sale-title h3 {
     font-size: 22px !important; }
+  .ico-start-box .token-sale-title h6 {
+    font-size: 16px !important; }
 
 .ico-start-box .token-sale-announcement {
   padding: 5%; }
   .ico-start-box .token-sale-announcement h6 {
-    margin-top: 20px;
-    font-size: 14px !important; }
+    margin-top: 20px; }
 
 .ico-start-box h3 {
   color: #ff6a46;
@@ -56,10 +57,12 @@ input {
   color: #ff6a46;
   font-weight: bold;
   font-size: 40px;
-  margin-top: 8px; }
+  margin-top: 8px;
+  text-decoration: underline; }
 
 .ico-start-box h6 {
-  font-weight: 300 !important; }
+  font-weight: 300 !important;
+  font-size: 16px !important; }
 
 .ico-start-box h4 {
   font-weight: bold;
@@ -115,6 +118,13 @@ input {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer; }
+
+#error-msg {
+  width: 100%;
+  display: none;
+  color: red;
+  position: absolute;
+  bottom: -32px; }
 
 .margin-top0 {
   margin-top: 0 !important; }
@@ -284,7 +294,7 @@ input {
   background: #FFF; }
 
 .telegram-bottom.extra-space {
-  bottom: 60px; }
+  bottom: 48px; }
 
 #hero-register-button {
   text-decoration: none; }
@@ -2687,6 +2697,11 @@ footer {
           margin-right: 8px;
           text-align: center;
           border-radius: 50%; }
+      .kyc-page ol.number-list .token-information, .kyc-page ul.number-list .token-information {
+        margin: 4px 0 0 36px; }
+        .kyc-page ol.number-list .token-information div span, .kyc-page ul.number-list .token-information div span {
+          width: 10px;
+          height: 10px; }
     .kyc-page ol.high-line > li, .kyc-page ul.high-line > li {
       line-height: 32px; }
   .kyc-page p, .kyc-page li {
@@ -3056,7 +3071,7 @@ footer {
   .fixed-container-width {
     width: 970px; }
   .telegram-bottom.extra-space {
-    bottom: 120px; }
+    bottom: 80px; }
   .hero.hero-ico .hero-inner .hero-valign .container-transparent h6 {
     font-size: 12px; }
   .people-are-talking .arrow-right.slick-arrow {
@@ -3272,7 +3287,9 @@ footer {
     .alert-announcement .alert-announcement-separator {
       display: none; }
     .alert-announcement .close {
-      line-height: 20px; }
+      line-height: 20px;
+      min-width: 45px;
+      min-height: 45px; }
   @-webkit-keyframes balls {
     from {
       -webkit-transform: translateY(0); }
@@ -3504,7 +3521,7 @@ footer {
   .station-box {
     margin-bottom: 50px; }
   .telegram-bottom.extra-space {
-    bottom: 140px; }
+    bottom: 100px; }
   .hero.hero-ico .hero-inner .hero-valign h1 {
     font-size: 28px;
     padding-top: 25px;
@@ -3582,6 +3599,10 @@ footer {
 .invalid {
   border-color: red !important; }
 
+@media (max-width: 362px) {
+  .telegram-bottom.extra-space {
+    bottom: 120px; } }
+
 @media (max-height: 767px) {
   #iphonex {
     height: 530px; } }
@@ -3612,5 +3633,3 @@ footer {
   margin: 4px 6px 10px 8px;
   background-size: cover;
   background-image: url("../img/dav_token_symbol.svg"); }
-
-/*# sourceMappingURL=style.css.map */

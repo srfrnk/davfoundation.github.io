@@ -68,6 +68,32 @@ $(document).ready(function(){
   }
   
 
+  var mailInput = $('.email-input');
+  var mailCheckButton = $('#submit-email');
+  var mailCheckForm = $('.email-form');
+
+  mailCheckForm.submit(function (event){
+      if (!checkEmail(mailInput.val())) {
+        event.preventDefault();
+      }
+  })
+
+  function checkEmail(email) {
+    email = email.trim();
+    if (validateEmail(email)) {
+      return true;
+    } 
+    var errorMsg = $('#error-msg');
+    showErrorMsg(errorMsg, "Please enter a valid email address.");
+    return false;
+  }
+
+  function showErrorMsg(el, msg) {
+    el.show();
+    el.animateCss("shake");
+    el.text(msg);
+  }
+  
   // color switch for nav
    var scroll_start = 0;
    var startchange = $('#startchange');

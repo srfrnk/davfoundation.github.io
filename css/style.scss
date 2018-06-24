@@ -55,13 +55,15 @@ input {
 		h3 {
 			font-size: 22px !important;
 		}
+		h6 {
+			font-size: 16px !important;
+		}
 	}
 	
 	.token-sale-announcement {
 		padding: 5%;
 		h6 {
 			margin-top: 20px;
-			font-size: 14px !important;
 		}
 	}
 	
@@ -75,9 +77,11 @@ input {
 		font-weight: bold;
 		font-size: 40px;
 		margin-top: 8px;
+		text-decoration: underline;
 	}
 	h6 {
 		font-weight: 300 !important;
+		font-size: 16px !important;
 	}
 	h4 {
 		font-weight: bold;
@@ -142,6 +146,15 @@ input {
 		}
 	}
 }
+
+#error-msg {
+    width: 100%;
+    display: none;
+    color: red;
+    position: absolute;
+    bottom: -32px;
+}
+
 .margin-top0 {
 	margin-top: 0 !important;
 }
@@ -343,7 +356,7 @@ input {
     }
 }
 .telegram-bottom.extra-space{
-	bottom: 60px;
+	bottom: 48px;
 }
 #hero-register-button {
 	text-decoration: none;
@@ -3364,6 +3377,19 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 					border-radius: 50%;
 				}
 			}
+
+			.token-information {
+
+				margin: 4px 0 0 36px;
+
+				div {
+					span {
+						width: 10px;
+						height: 10px;
+					}	
+				}
+			}		
+
 		}
 		&.high-line{
 			& > li{
@@ -3874,7 +3900,7 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 		width: 970px;
 	}
 	.telegram-bottom.extra-space {
-    	bottom: 120px;
+    	bottom: 80px;
 	}
 	.hero.hero-ico .hero-inner .hero-valign .container-transparent h6{
 		font-size: 12px;
@@ -4203,6 +4229,8 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 		}
 		.close{
 			line-height: 20px;
+			min-width: 45px;
+			min-height: 45px;
 		}
 	}
   	@-webkit-keyframes balls {
@@ -4513,7 +4541,7 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 		margin-bottom: 50px;
 	}
 	.telegram-bottom.extra-space {
-    	bottom: 140px;
+    	bottom: 100px;
 	}
 	.hero.hero-ico .hero-inner .hero-valign{
 		h1{
@@ -4623,6 +4651,11 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 }
 .invalid {
 	border-color: red !important;
+}
+@media (max-width: 362px) {
+	.telegram-bottom.extra-space {
+    	bottom: 120px;
+	}
 }
 @media (max-height: 767px) {
 	#iphonex {
