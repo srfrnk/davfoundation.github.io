@@ -108,18 +108,18 @@ input {
 		padding: 1%;
 
 		
-		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		::placeholder { // Chrome, Firefox, Opera, Safari 10.1+
 			color: white;
-			opacity: 1; /* Firefox */
+			opacity: 1; // Firefox
 		}
 
-		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		:-ms-input-placeholder { // Internet Explorer 10-11
 			color: white;
 		}
 
-		::-ms-input-placeholder { /* Microsoft Edge */
+		::-ms-input-placeholder { // Microsoft Edge 
 			color: white;
-		} 
+		}
 		
 		input {
 			width: 66%;
@@ -152,8 +152,8 @@ input {
 
 #error-msg {
     width: 100%;
-    display: none;
-    color: red;
+	display: none;
+	color: #ff6946;
     position: absolute;
     bottom: -32px;
 }
@@ -4715,4 +4715,22 @@ box-shadow: 0px 0px 21px 7px rgba(200,202,205,0.74);
 	margin: 4px 6px 10px 8px;
 	background-size: cover;
 	background-image: url('../img/dav_token_symbol.svg');
+}
+.bottom-subscription {
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: white;
+		opacity: 1; /* Firefox */
+	}
+
+	:-ms-input-placeholder { /* Internet Explorer 10+*/
+		color: white;
+	}
+
+	input::-webkit-input-placeholder { /* WebKit browsers */
+		color: white;
+	}
+	
+	input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color: white;
+	}
 }
