@@ -488,6 +488,8 @@ input {
     .hero.hero-ico .hero-inner {
       position: relative;
       z-index: 10; }
+    .hero.hero-ico .hero-inner .hero-valign .token-sale-title h6 {
+      padding: 0 10px; }
     .hero.hero-ico .hero-inner .hero-valign h1 {
       font-size: 45px; }
     .hero.hero-ico .hero-inner .hero-valign h4 {
