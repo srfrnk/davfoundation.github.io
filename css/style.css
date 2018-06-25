@@ -56,9 +56,8 @@ input {
 .ico-start-box h2 {
   color: #ff6a46;
   font-weight: bold;
-  font-size: 40px;
-  margin-top: 8px;
-  text-decoration: underline; }
+  font-size: 36px;
+  margin-top: 8px; }
 
 .ico-start-box h6 {
   font-weight: 300 !important;
@@ -76,6 +75,8 @@ input {
   padding-top: 10%;
   padding-bottom: 10%;
   margin: auto; }
+  .ico-start-box .raised a:hover {
+    text-decoration: none; }
 
 .ico-start-box form {
   display: flex;
