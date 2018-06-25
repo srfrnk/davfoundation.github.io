@@ -95,25 +95,25 @@ $(document).ready(function(){
   }
   
   // color switch for nav
-   var scroll_start = 0;
-   var startchange = $('#startchange');
-   var offset = startchange.offset();
+    var scroll_start = 0;
+    var startchange = $('#startchange');
+    var offset = startchange.offset();
+    paintHeader();
     if (startchange.length){
-     $(document).scroll(function() {
-
-        scroll_start = $(this).scrollTop();
-        if(scroll_start > offset.top) {
-            $(".navbar-fixed-top").addClass('user-scroll');
-            $(".index3").addClass('makeFix');
-            // $(".telegram-bottom").addClass('nospan');
-         } else {
-            $(".navbar-fixed-top").removeClass('user-scroll');
-            $(".index3").removeClass('makeFix');
-            // $(".telegram-bottom").removeClass('nospan');
-         }
-     });
+      $(document).scroll(paintHeader);
     }
-
+    function paintHeader() {
+      scroll_start = $(this).scrollTop();
+      if(scroll_start > offset.top) {
+          $(".navbar-fixed-top").addClass('user-scroll');
+          $(".index3").addClass('makeFix');
+          // $(".telegram-bottom").addClass('nospan');
+        } else {
+          $(".navbar-fixed-top").removeClass('user-scroll');
+          $(".index3").removeClass('makeFix');
+          // $(".telegram-bottom").removeClass('nospan');
+        }
+    }
     $("#transaction_id").val(getParameterByName("transaction_id"));
     $("#referrer").val(window.localStorage.getItem('dav-referrer'));
 
