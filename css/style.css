@@ -84,15 +84,11 @@ input {
   margin: auto;
   padding: 1%; }
   .ico-start-box form ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
-    opacity: 1;
-    /* Firefox */ }
+    opacity: 1; }
   .ico-start-box form :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
     color: white; }
   .ico-start-box form ::-ms-input-placeholder {
-    /* Microsoft Edge */
     color: white; }
   .ico-start-box form input {
     width: 66%;
@@ -3642,3 +3638,17 @@ footer {
   margin: 4px 6px 10px 8px;
   background-size: cover;
   background-image: url("../img/dav_token_symbol.svg"); }
+
+.bottom-subscription ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1;
+  /* Firefox */ }
+
+.bottom-subscription :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white; }
+
+.bottom-subscription ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white; }
