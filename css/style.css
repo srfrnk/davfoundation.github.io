@@ -3197,6 +3197,8 @@ footer {
     background: #ff6a46; }
   .navbar-fixed-top li > a {
     color: #fff; }
+  .user-scroll.navbar-fixed-top li > a {
+    color: #333; }
   .navbar-fixed-top .navbar-collapse {
     max-height: 100%;
     background-color: #020202; }
