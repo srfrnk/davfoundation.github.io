@@ -3646,9 +3646,13 @@ footer {
   /* Firefox */ }
 
 .bottom-subscription :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
+  /* Internet Explorer 10+*/
   color: white; }
 
-.bottom-subscription ::-ms-input-placeholder {
-  /* Microsoft Edge */
+.bottom-subscription input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: white; }
+
+.bottom-subscription input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
   color: white; }
