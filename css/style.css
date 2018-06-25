@@ -488,6 +488,8 @@ input {
     .hero.hero-ico .hero-inner {
       position: relative;
       z-index: 10; }
+    .hero.hero-ico .hero-inner .hero-valign .token-sale-title h6 {
+      padding: 0 10px; }
     .hero.hero-ico .hero-inner .hero-valign h1 {
       font-size: 45px; }
     .hero.hero-ico .hero-inner .hero-valign h4 {
@@ -3194,7 +3196,7 @@ footer {
   .navbar-toggle .icon-bar {
     background: #ff6a46; }
   .navbar-fixed-top li > a {
-    color: #666; }
+    color: #fff; }
   .navbar-fixed-top .navbar-collapse {
     max-height: 100%;
     background-color: #020202; }
